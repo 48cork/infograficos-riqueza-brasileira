@@ -3,20 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Concentração de Renda no Brasil (1975–2025)</title>
+  <!-- Estilos para layout, responsividade e visual agradável -->
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
       background: #fafafa;
       color: #222;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
     h1 {
       color: #195ca4;
       margin-bottom: 18px;
+      text-align: center;
     }
+    /* Caixa com texto explicativo */
+    .intro {
+      font-size: 1.16em;
+      margin-top: 8px;
+      margin-bottom: 28px;
+      text-align: center;
+      line-height: 1.5;
+      background: #f0f4fc;
+      border-radius: 8px;
+      padding: 18px 12px;
+      box-shadow: 0 2px 8px #ddd2;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Linha de botões dos períodos */
     .periods {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       margin-bottom: 30px;
       justify-content: center;
     }
@@ -29,47 +50,58 @@
       font-size: 1.15em;
       color: #195ca4;
       font-weight: bold;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.18s, color 0.18s;
+      outline: none;
     }
     .period-btn.active,
     .period-btn:hover {
       background: #195ca4;
       color: #fff;
     }
+    /* Infográficos e textos dos painéis */
     .infographic, .caption, .info-text {
       text-align: center;
-      display: none;
+      display: none; /* Só exibe o painel ativo */
       margin-top: 24px;
       margin-bottom: 24px;
     }
     .infographic img {
       max-width: 80vw;
       border: 1px solid #d6dae2;
-      border-radius: 5px;
+      border-radius: 7px;
       box-shadow: 0 2px 12px #aaa2;
-      margin-bottom: 16px;
+      margin-bottom: 17px;
     }
     .caption {
-      font-size: 1.2em;
+      font-size: 1.25em;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      color: #194080;
     }
     .info-text {
-      font-size: 1.1em;
-      margin-bottom: 20px;
+      font-size: 1.08em;
+      margin-bottom: 14px;
+      color: #444;
+    }
+    /* Layout para telas pequenas */
+    @media (max-width: 700px) {
+      body {margin: 12px;}
+      .intro {padding: 12px 4px;}
+      .period-btn {padding: 8px 10px; font-size: 1em;}
+      .infographic img {max-width: 98vw;}
     }
   </style>
 </head>
 <body>
-  <!-- Headline -->
+  <!-- Título principal -->
   <h1>Concentração de Renda no Brasil (1975–2025)</h1>
   
-  <!-- Texto explicativo sempre visível -->
-  <p style="font-size:1.15em; margin-top:8px; margin-bottom:32px;">
+  <!-- Texto de introdução/contexto visível sempre -->
+  <div class="intro">
     Ao longo dos últimos 50 anos, a concentração de renda no Brasil aumentou significativamente. O <strong>1% mais rico</strong> passou a controlar cerca de 70% da riqueza total do país, enquanto os grupos de 0,1% e 0,01% super-ricos também ampliaram sua participação. Apesar de avanços sociais, a distribuição permanece altamente desigual, e a renda no topo cresce muito acima da média nacional. Os infográficos abaixo ilustram essa evolução histórica e os desafios da desigualdade econômica brasileira.
-  </p>
+  </div>
   
-  <!-- Barra de períodos para navegação -->
+  <!-- Linha de navegação por períodos -->
   <div class="periods">
     <button class="period-btn active" onclick="showPeriod(0)">1975–1990</button>
     <button class="period-btn" onclick="showPeriod(1)">1991–2005</button>
@@ -77,14 +109,14 @@
     <button class="period-btn" onclick="showPeriod(3)">Comparativo de Renda</button>
   </div>
 
-  <!-- Painéis de infográficos por período. Substitua os nomes das imagens conforme o que está no repositório! -->
+  <!-- Painéis de infográficos por período: cada bloco desse fica visível ao clicar no botão correspondente -->
+  <!-- Ajuste o nome/caminho das imagens conforme o nome no repositório: ex: "img/infografico1.png" -->
   <div id="panel0" class="infographic" style="display:block;">
     <div class="caption">Crescimento da concentração dos mais ricos (1975–1990)</div>
     <div class="info-text">
       O 1% mais rico detinha 55% da riqueza nacional em 1975 e chega a 60% em 1990.<br>
       O 0,1% e 0,01% também ampliam sua fatia, destacando o aumento da desigualdade.
     </div>
-    <!-- Altere o caminho da imagem caso tenha criado uma pasta (ex: src="img/infografico1.png") -->
     <img src="infografico1.png" alt="Concentração dos mais ricos 1975–1990">
   </div>
   <div id="panel1" class="infographic">
@@ -115,14 +147,14 @@
     <img src="infografico2.png" alt="Renda média dos mais ricos">
   </div>
 
-  <!-- Script de alternância dos períodos -->
+  <!-- Script simples para alternar períodos ao clicar nos botões -->
   <script>
     function showPeriod(idx) {
       // Esconde todos os painéis
       for (let i = 0; i <= 3; i++) {
         document.getElementById('panel' + i).style.display = 'none';
       }
-      // Remove 'ativo' dos botões
+      // Remove destaque dos botões
       document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
       // Mostra painel e ativa botão correspondente
       document.getElementById('panel' + idx).style.display = 'block';
