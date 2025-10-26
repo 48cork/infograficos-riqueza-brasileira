@@ -339,82 +339,85 @@
     Ao longo dos últimos 50 anos, a concentração de renda no Brasil aumentou significativamente. O <strong>1% mais rico</strong> passou a controlar cerca de 70% da riqueza total do país, enquanto os grupos de 0,1%, 0,01% e 0,001% mais ricos ampliaram ainda mais suas participações. A distância em relação aos segmentos mais pobres permanece abismal e tende a crescer, como mostram os infográficos abaixo.
   </div>
   
-  <!-- Linha de navegação por períodos -->
+  <!-- Linha de navegação por períodos - CORRIGIDA -->
   <div class="periods">
     <button class="period-btn active" onclick="showPeriod(0)">Linha do Tempo</button>
-    <button class="period-btn" onclick="showPeriod(1)">Renda Média</button>
-    <button class="period-btn" onclick="showPeriod(2)">Comparação Ricos vs Pobres</button>
-    <button class="period-btn" onclick="showPeriod(3)">Evolução Histórica</button>
+    <button class="period-btn" onclick="showPeriod(1)">Comparativo de Renda</button>
+    <button class="period-btn" onclick="showPeriod(2)">Super-ricos vs Pobres</button>
+    <button class="period-btn" onclick="showPeriod(3)">Evolução da Desigualdade</button>
     <button class="period-btn" onclick="showPeriod(4)">Dados Estatísticos</button>
   </div>
 
-  <!-- Painel 1: Linha do Tempo -->
+  <!-- Painel 1: Linha do Tempo - INFOGRAFICO1 -->
   <div id="panel0" class="infographic" style="display:block;">
-    <div class="caption">Evolução da Concentração de Renda (1975–2025)</div>
+    <div class="caption">Evolução Histórica da Concentração de Renda (1975–2025)</div>
     <div class="info-text">
-      A trajetória do 1%, 0,1% e 0,01% mais ricos ao longo de 50 anos mostra um crescimento constante 
-      da concentração de renda no topo da pirâmide social brasileira.
+      Linha do tempo mostra a trajetória de crescimento da participação dos 1%, 0,1% e 0,01% mais ricos na riqueza nacional ao longo de 50 anos.
     </div>
     <div class="image-container">
-      <img src="infografico1.png" alt="Linha do tempo da concentração dos mais ricos (1%, 0,1%, 0,01%)" 
+      <img src="./infografico1.png" alt="Linha do tempo da concentração dos mais ricos (1%, 0,1%, 0,01%)" 
            onerror="this.style.display='none'; document.getElementById('placeholder1').style.display='block';">
       <div id="placeholder1" class="image-placeholder" style="display: none;">
         📊 Imagem não encontrada: infografico1.png<br>
-        <small>Faça upload do arquivo "infografico1.png" para ver o gráfico</small>
+        <small>Esta imagem deve mostrar a linha do tempo histórica</small>
       </div>
-      <div class="image-caption">Evolução histórica da participação na riqueza nacional dos grupos mais ricos</div>
+      <div class="image-caption">Evolução da participação na riqueza nacional dos grupos mais ricos (1975-2025)</div>
     </div>
   </div>
   
-  <!-- Painel 2: Renda Média -->
+  <!-- Painel 2: Comparativo de Renda - INFOGRAFICO2 -->
   <div id="panel1" class="infographic">
     <div class="caption">Comparativo de Renda Média dos Mais Ricos</div>
     <div class="info-text">
-      A disparidade salarial entre os diferentes estratos do topo revela uma pirâmide dentro da pirâmide, 
-      onde cada degrau superior concentra rendas exponencialmente maiores.
+      A disparidade salarial entre os diferentes estratos do topo revela uma pirâmide dentro da pirâmide.
+    </div>
+    <div class="highlight-box">
+      <strong>Salto na renda média mensal (2005 → 2025):</strong><br>
+      1%: R$ 45 mil → R$ 103 mil<br>
+      0,1%: R$ 500 mil → R$ 2,57 milhões<br>
+      0,01%: R$ 2,5 milhões → R$ 7 milhões
     </div>
     <div class="image-container">
-      <img src="infografico2.png" alt="Comparativo de renda média dos mais ricos (1%, 0,1%, 0,01%)" 
+      <img src="./infografico2.png" alt="Comparativo de renda média dos mais ricos (1%, 0,1%, 0,01%)" 
            onerror="this.style.display='none'; document.getElementById('placeholder2').style.display='block';">
       <div id="placeholder2" class="image-placeholder" style="display: none;">
         📊 Imagem não encontrada: infografico2.png<br>
-        <small>Faça upload do arquivo "infografico2.png" para ver o gráfico</small>
+        <small>Esta imagem deve mostrar o comparativo de renda média</small>
       </div>
       <div class="image-caption">Renda média mensal por grupo de renda no topo da distribuição</div>
     </div>
   </div>
   
-  <!-- Painel 3: Comparação Ricos vs Pobres -->
+  <!-- Painel 3: Comparação Ricos vs Pobres - INFOGRAFICO_COMPARACAO -->
   <div id="panel2" class="infographic">
-    <div class="caption">Desigualdade Extrema: Topo vs Base (2025)</div>
+    <div class="caption">Desigualdade Extrema: Super-ricos vs 40% mais Pobres</div>
     <div class="info-text">
-      Enquanto os 0,001% mais ricos concentram parcela significativa da riqueza nacional, 
-      os 40% mais pobres dividem uma fatia mínima do bolo econômico.
+      Comparação visual entre os grupos mais ricos (1%, 0,1%, 0,01%, 0,001%) e os 40% mais pobres da população.
     </div>
     <div class="image-container">
-      <img src="infografico_comparacao_ricos_pobres.png" alt="Comparação entre os mais ricos e os 40% mais pobres" 
+      <img src="./infografico_comparacao_ricos_pobres.png" alt="Comparação entre os mais ricos e os 40% mais pobres" 
            onerror="this.style.display='none'; document.getElementById('placeholder3').style.display='block';">
       <div id="placeholder3" class="image-placeholder" style="display: none;">
         📊 Imagem não encontrada: infografico_comparacao_ricos_pobres.png<br>
-        <small>Faça upload do arquivo "infografico_comparacao_ricos_pobres.png" para ver o gráfico</small>
+        <small>Esta imagem deve mostrar a comparação entre ricos e pobres</small>
       </div>
-      <div class="image-caption">Distribuição da riqueza entre os estratos extremos da população brasileira</div>
+      <div class="image-caption">Distribuição da riqueza entre os estratos extremos da população brasileira (2025)</div>
     </div>
   </div>
   
-  <!-- Painel 4: Evolução Histórica -->
+  <!-- Painel 4: Evolução Histórica - INFOGRAFICO_EVOLUCAO -->
   <div id="panel3" class="infographic">
-    <div class="caption">Evolução da Desigualdade (2005–2025)</div>
+    <div class="caption">Evolução da Desigualdade: 0,001% mais Ricos vs 40% mais Pobres</div>
     <div class="info-text">
       Duas décadas de trajetórias divergentes: enquanto a renda dos ultra-ricos dispara, 
       a base da pirâmide enfrenta estagnação ou crescimento marginal.
     </div>
     <div class="image-container">
-      <img src="infografico_evolucao_ricos_pobres.png" alt="Evolução histórica da renda dos 0,001% mais ricos vs 40% mais pobres" 
+      <img src="./infografico_evolucao_ricos_pobres.png" alt="Evolução histórica da renda dos 0,001% mais ricos vs 40% mais pobres" 
            onerror="this.style.display='none'; document.getElementById('placeholder4').style.display='block';">
       <div id="placeholder4" class="image-placeholder" style="display: none;">
         📊 Imagem não encontrada: infografico_evolucao_ricos_pobres.png<br>
-        <small>Faça upload do arquivo "infografico_evolucao_ricos_pobres.png" para ver o gráfico</small>
+        <small>Esta imagem deve mostrar a evolução da desigualdade ao longo do tempo</small>
       </div>
       <div class="image-caption">Trajetória comparativa da renda dos extremos da distribuição (2005-2025)</div>
     </div>
@@ -424,7 +427,7 @@
   <div id="panel4" class="infographic">
     <div class="caption">Dados Estatísticos da Desigualdade no Brasil</div>
     <div class="info-text">
-      Principais indicadores oficiais sobre concentração de renda e riqueza no país, baseados em dados do Ministério da Fazenda, IBGE e outras fontes confiáveis.
+      Principais indicadores oficiais sobre concentração de renda e riqueza no país.
     </div>
     
     <div class="data-table-container">
@@ -440,18 +443,13 @@
         <tbody>
           <tr>
             <td class="metric">Concentração de Renda (1% mais rico)</td>
-            <td class="finding">Detém <span class="highlight-number">27,4%</span> da renda nacional (ante 20,3% estimado anteriormente)</td>
-            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
+            <td class="finding">Detém <span class="highlight-number">27,4%</span> da renda nacional</td>
+            <td class="source">Ministério da Fazenda (2019)</td>
           </tr>
           <tr>
             <td class="metric">Concentração de Renda (0,1% mais rico)</td>
-            <td class="finding">Controla <span class="highlight-number">12,4%</span> de toda a renda (cerca de 150 mil pessoas)</td>
-            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
-          </tr>
-          <tr>
-            <td class="metric">Concentração de Renda (0,01% mais rico)</td>
-            <td class="finding">Concentra <span class="highlight-number">6,1%</span> de toda a renda (cerca de 15 mil pessoas)</td>
-            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
+            <td class="finding">Controla <span class="highlight-number">12,4%</span> de toda a renda</td>
+            <td class="source">Ministério da Fazenda (2019)</td>
           </tr>
           <tr>
             <td class="metric">Concentração de Riqueza (1% mais rico)</td>
@@ -460,30 +458,11 @@
           </tr>
           <tr>
             <td class="metric">Disparidade de Renda</td>
-            <td class="finding">O 1% mais rico tem renda mensal <span class="highlight-number">39,2 vezes</span> maior que os 40% mais pobres</td>
-            <td class="source">IBGE (dados 2023, relatório 2024)</td>
-          </tr>
-          <tr>
-            <td class="metric">Desigualdade Tributária</td>
-            <td class="finding">Milionários pagam alíquota efetiva de <span class="highlight-number">20,6%</span>, enquanto brasileiro médio paga <span class="highlight-number">42,5%</span></td>
-            <td class="source">Ministério da Fazenda (estudo 2025)</td>
-          </tr>
-          <tr>
-            <td class="metric">Participação no Topo</td>
-            <td class="finding">Os 5% mais ricos concentram <span class="highlight-number">49,8%</span> da massa de renda total</td>
-            <td class="source">IBGE (PNAD Contínua 2023)</td>
-          </tr>
-          <tr>
-            <td class="metric">Renda dos 50% mais pobres</td>
-            <td class="finding">Representa apenas <span class="highlight-number">9,6%</span> do total de rendimentos</td>
-            <td class="source">IBGE (PNAD Contínua 2023)</td>
+            <td class="finding">O 1% mais rico tem renda <span class="highlight-number">39,2 vezes</span> maior que os 40% mais pobres</td>
+            <td class="source">IBGE (2023)</td>
           </tr>
         </tbody>
       </table>
-    </div>
-    
-    <div class="info-text">
-      <strong>Nota metodológica:</strong> Os dados do Ministério da Fazenda utilizam informações de 2019 (pré-pandemia) mas foram publicados em 2025, representando a análise mais atualizada e precisa da concentração de renda no topo da pirâmide.
     </div>
   </div>
 
@@ -507,7 +486,8 @@
       images.forEach((img, index) => {
         img.onerror = function() {
           this.style.display = 'none';
-          document.getElementById('placeholder' + (index + 1)).style.display = 'block';
+          const placeholder = document.getElementById('placeholder' + (index + 1));
+          if (placeholder) placeholder.style.display = 'block';
         };
       });
     });
