@@ -4,159 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concentração de Renda no Brasil (1975–2025)</title>
-  <!-- Estilos para layout, responsividade e visual agradável -->
+  <!-- Adicionando fontes do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* Importando fontes do Google Fonts para melhor legibilidade */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
-    :root {
-      --primary-color: #1a4b8c;
-      --primary-light: #e8eff7;
-      --secondary-color: #2c5aa0;
-      --text-color: #333;
-      --text-light: #666;
-      --background: #f8fafc;
-      --white: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.08);
-    }
-    
+    /* Reset e variáveis */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     
+    :root {
+      --primary: #1a365d;
+      --secondary: #2d3748;
+      --accent: #2b6cb0;
+      --light-bg: #f7fafc;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --text-light: #4a5568;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      padding: 40px 20px;
-      background: var(--background);
-      color: var(--text-color);
-      line-height: 1.6;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    h1 {
-      color: var(--primary-color);
-      margin-bottom: 24px;
-      text-align: center;
-      font-weight: 700;
-      font-size: 2.2rem;
-      line-height: 1.3;
-    }
-    
-    /* Caixa com texto explicativo */
-    .intro {
-      font-size: 1.1rem;
-      margin-top: 8px;
-      margin-bottom: 40px;
-      text-align: center;
+      font-family: 'Open Sans', sans-serif;
       line-height: 1.7;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 24px 28px;
-      box-shadow: 0 4px 12px var(--shadow);
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
-      border-left: 4px solid var(--primary-color);
+      color: var(--text);
+      background: var(--light-bg);
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
-    /* Linha de botões dos períodos */
+    /* Tipografia melhorada */
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+    }
+    
+    .intro {
+      font-size: 1.125rem;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+      border-left: 4px solid var(--accent);
+      font-weight: 400;
+      color: var(--text-light);
+    }
+    
+    .intro strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    /* Botões redesenhados */
     .periods {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
     
     .period-btn {
-      background: var(--primary-light);
-      border: 2px solid transparent;
-      border-radius: 24px;
-      cursor: pointer;
-      padding: 14px 24px;
+      font-family: 'Open Sans', sans-serif;
       font-size: 1rem;
-      color: var(--primary-color);
       font-weight: 600;
-      transition: all 0.25s ease;
-      outline: none;
-      min-width: 140px;
-    }
-    
-    .period-btn.active,
-    .period-btn:hover {
-      background: var(--primary-color);
-      color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(26, 75, 140, 0.2);
-    }
-    
-    /* Infográficos e textos dos painéis */
-    .infographic, .caption, .info-text {
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
       text-align: center;
-      display: none; /* Só exibe o painel ativo */
-      margin-top: 24px;
-      margin-bottom: 24px;
     }
     
-    .infographic img {
-      max-width: 85%;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      margin-bottom: 24px;
-      transition: transform 0.3s ease;
+    .period-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
     }
     
-    .infographic img:hover {
-      transform: scale(1.01);
+    .period-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Painéis de conteúdo */
+    .infographic {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      display: none;
+    }
+    
+    .infographic:first-of-type {
+      display: block;
     }
     
     .caption {
-      font-size: 1.4rem;
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--primary-color);
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-align: center;
     }
     
     .info-text {
       font-size: 1.1rem;
-      margin-bottom: 20px;
       color: var(--text-light);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 2rem;
+      text-align: center;
+      line-height: 1.8;
     }
     
-    /* Layout para telas pequenas */
+    .infographic img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+    }
+    
+    /* Responsividade */
     @media (max-width: 768px) {
       body {
-        padding: 20px 15px;
+        padding: 1rem;
       }
       
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       
       .intro {
-        padding: 18px 16px;
+        padding: 1.5rem;
         font-size: 1rem;
-        margin-bottom: 30px;
       }
       
-      .period-btn {
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        min-width: 120px;
+      .periods {
+        grid-template-columns: 1fr;
       }
       
-      .infographic img {
-        max-width: 95%;
+      .infographic {
+        padding: 1.5rem;
       }
       
       .caption {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
       
       .info-text {
@@ -165,28 +177,27 @@
     }
     
     @media (max-width: 480px) {
-      .periods {
-        gap: 10px;
+      h1 {
+        font-size: 1.75rem;
       }
       
-      .period-btn {
-        padding: 10px 14px;
-        min-width: 110px;
-        font-size: 0.9rem;
+      .intro {
+        padding: 1rem;
+      }
+      
+      .infographic {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Título principal -->
   <h1>Concentração de Renda no Brasil (1975–2025)</h1>
   
-  <!-- Texto de introdução/contexto visível sempre -->
   <div class="intro">
     Ao longo dos últimos 50 anos, a concentração de renda no Brasil aumentou significativamente. O <strong>1% mais rico</strong> passou a controlar cerca de 70% da riqueza total do país, enquanto os grupos de 0,1% e 0,01% super-ricos também ampliaram sua participação. Apesar de avanços sociais, a distribuição permanece altamente desigual, e a renda no topo cresce muito acima da média nacional. Os infográficos abaixo ilustram essa evolução histórica e os desafios da desigualdade econômica brasileira.
   </div>
   
-  <!-- Linha de navegação por períodos -->
   <div class="periods">
     <button class="period-btn active" onclick="showPeriod(0)">1975–1990</button>
     <button class="period-btn" onclick="showPeriod(1)">1991–2005</button>
@@ -194,9 +205,7 @@
     <button class="period-btn" onclick="showPeriod(3)">Comparativo de Renda</button>
   </div>
 
-  <!-- Painéis de infográficos por período: cada bloco desse fica visível ao clicar no botão correspondente -->
-  <!-- Ajuste o nome/caminho das imagens conforme o nome no repositório: ex: "img/infografico1.png" -->
-  <div id="panel0" class="infographic" style="display:block;">
+  <div id="panel0" class="infographic">
     <div class="caption">Crescimento da concentração dos mais ricos (1975–1990)</div>
     <div class="info-text">
       O 1% mais rico detinha 55% da riqueza nacional em 1975 e chega a 60% em 1990.<br>
@@ -204,6 +213,7 @@
     </div>
     <img src="infografico1.png" alt="Concentração dos mais ricos 1975–1990">
   </div>
+  
   <div id="panel1" class="infographic">
     <div class="caption">Avanço e desafios sociais (1991–2005)</div>
     <div class="info-text">
@@ -212,6 +222,7 @@
     </div>
     <img src="infografico1.png" alt="Concentração dos mais ricos 1991–2005">
   </div>
+  
   <div id="panel2" class="infographic">
     <div class="caption">A escalada do topo (2006–2025)</div>
     <div class="info-text">
@@ -221,6 +232,7 @@
     </div>
     <img src="infografico1.png" alt="Concentração dos mais ricos 2006–2025">
   </div>
+  
   <div id="panel3" class="infographic">
     <div class="caption">Comparativo de Renda Média (2005 vs 2025)</div>
     <div class="info-text">
@@ -232,15 +244,18 @@
     <img src="infografico2.png" alt="Renda média dos mais ricos">
   </div>
 
-  <!-- Script simples para alternar períodos ao clicar nos botões -->
   <script>
     function showPeriod(idx) {
       // Esconde todos os painéis
-      for (let i = 0; i <= 3; i++) {
-        document.getElementById('panel' + i).style.display = 'none';
-      }
+      document.querySelectorAll('.infographic').forEach(panel => {
+        panel.style.display = 'none';
+      });
+      
       // Remove destaque dos botões
-      document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.period-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
       // Mostra painel e ativa botão correspondente
       document.getElementById('panel' + idx).style.display = 'block';
       document.querySelectorAll('.period-btn')[idx].classList.add('active');
