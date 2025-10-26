@@ -131,6 +131,77 @@
       font-weight: 500;
     }
     
+    /* Estilos para a tabela de dados */
+    .data-table-container {
+      margin: 40px auto;
+      max-width: 900px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .data-table-caption {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #1e40af;
+      text-align: center;
+      padding: 20px;
+      background: #f0f4ff;
+      margin: 0;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95em;
+    }
+    
+    .data-table th {
+      background: #1e40af;
+      color: white;
+      font-weight: 600;
+      padding: 16px 12px;
+      text-align: left;
+      font-size: 1em;
+    }
+    
+    .data-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    
+    .data-table tr:hover {
+      background: #f0f4ff;
+    }
+    
+    .metric {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    
+    .finding {
+      color: #475569;
+    }
+    
+    .source {
+      color: #64748b;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    
+    .highlight-number {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+    
     @media (max-width: 768px) {
       body {
         margin: 20px 16px;
@@ -170,6 +241,25 @@
       .info-text {
         font-size: 1.05em;
       }
+      
+      .data-table-container {
+        margin: 30px 0;
+        border-radius: 8px;
+      }
+      
+      .data-table-caption {
+        font-size: 1.3em;
+        padding: 16px;
+      }
+      
+      .data-table {
+        font-size: 0.85em;
+      }
+      
+      .data-table th,
+      .data-table td {
+        padding: 10px 8px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -194,6 +284,15 @@
         width: 100%;
         max-width: 280px;
       }
+      
+      .data-table {
+        font-size: 0.8em;
+      }
+      
+      .data-table th,
+      .data-table td {
+        padding: 8px 6px;
+      }
     }
   </style>
 </head>
@@ -212,6 +311,7 @@
     <button class="period-btn" onclick="showPeriod(1)">Comparativo de Renda Média</button>
     <button class="period-btn" onclick="showPeriod(2)">Super-ricos vs Pobres (2025)</button>
     <button class="period-btn" onclick="showPeriod(3)">Evolução 0,001% x 40% mais pobres</button>
+    <button class="period-btn" onclick="showPeriod(4)">Dados Estatísticos</button>
   </div>
 
   <!-- Painéis de infográficos por segmento/período -->
@@ -258,11 +358,78 @@
     <img src="infografico_evolucao_ricos_pobres.png" alt="Evolução renda super-ricos vs mais pobres">
   </div>
 
+  <!-- 5: Tabela de Dados Estatísticos -->
+  <div id="panel4" class="infographic">
+    <div class="caption">Dados Estatísticos da Desigualdade no Brasil</div>
+    <div class="info-text">
+      Principais indicadores oficiais sobre concentração de renda e riqueza no país, baseados em dados do Ministério da Fazenda, IBGE e outras fontes confiáveis.
+    </div>
+    
+    <div class="data-table-container">
+      <div class="data-table-caption">📊 Indicadores de Concentração de Renda e Riqueza</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Métrica</th>
+            <th style="width: 45%;">Principais Resultados</th>
+            <th style="width: 30%;">Fonte / Ano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric">Concentração de Renda (1% mais rico)</td>
+            <td class="finding">Detém <span class="highlight-number">27,4%</span> da renda nacional (ante 20,3% estimado anteriormente)</td>
+            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
+          </tr>
+          <tr>
+            <td class="metric">Concentração de Renda (0,1% mais rico)</td>
+            <td class="finding">Controla <span class="highlight-number">12,4%</span> de toda a renda (cerca de 150 mil pessoas)</td>
+            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
+          </tr>
+          <tr>
+            <td class="metric">Concentração de Renda (0,01% mais rico)</td>
+            <td class="finding">Concentra <span class="highlight-number">6,1%</span> de toda a renda (cerca de 15 mil pessoas)</td>
+            <td class="source">Ministério da Fazenda (dados de 2019, estudo 2025)</td>
+          </tr>
+          <tr>
+            <td class="metric">Concentração de Riqueza (1% mais rico)</td>
+            <td class="finding">Controla <span class="highlight-number">63%</span> da riqueza do país</td>
+            <td class="source">Relatório Oxfam</td>
+          </tr>
+          <tr>
+            <td class="metric">Disparidade de Renda</td>
+            <td class="finding">O 1% mais rico tem renda mensal <span class="highlight-number">39,2 vezes</span> maior que os 40% mais pobres</td>
+            <td class="source">IBGE (dados 2023, relatório 2024)</td>
+          </tr>
+          <tr>
+            <td class="metric">Desigualdade Tributária</td>
+            <td class="finding">Milionários pagam alíquota efetiva de <span class="highlight-number">20,6%</span>, enquanto brasileiro médio paga <span class="highlight-number">42,5%</span></td>
+            <td class="source">Ministério da Fazenda (estudo 2025)</td>
+          </tr>
+          <tr>
+            <td class="metric">Participação no Topo</td>
+            <td class="finding">Os 5% mais ricos concentram <span class="highlight-number">49,8%</span> da massa de renda total</td>
+            <td class="source">IBGE (PNAD Contínua 2023)</td>
+          </tr>
+          <tr>
+            <td class="metric">Renda dos 50% mais pobres</td>
+            <td class="finding">Representa apenas <span class="highlight-number">9,6%</span> do total de rendimentos</td>
+            <td class="source">IBGE (PNAD Contínua 2023)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="info-text">
+      <strong>Nota metodológica:</strong> Os dados do Ministério da Fazenda utilizam informações de 2019 (pré-pandemia) mas foram publicados em 2025, representando a análise mais atualizada e precisa da concentração de renda no topo da pirâmide.
+    </div>
+  </div>
+
   <!-- Script simples para alternar painéis ao clicar nos botões -->
   <script>
     function showPeriod(idx) {
       // Esconde todos os painéis
-      for (let i = 0; i <= 3; i++) {
+      for (let i = 0; i <= 4; i++) {
         document.getElementById('panel' + i).style.display = 'none';
       }
       // Remove destaque dos botões
