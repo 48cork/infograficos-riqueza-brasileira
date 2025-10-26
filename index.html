@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Concentração de Renda no Brasil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #fafafa;
+      color: #222;
+    }
+    h1 {
+      color: #195ca4;
+      margin-bottom: 18px;
+    }
+    .periods {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    .period-btn {
+      background: #dde6f4;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+      padding: 12px 28px;
+      font-size: 1.15em;
+      color: #195ca4;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+    }
+    .period-btn.active,
+    .period-btn:hover {
+      background: #195ca4;
+      color: #fff;
+    }
+    .infographic, .caption, .info-text {
+      text-align: center;
+      display: none;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    .infographic img {
+      max-width: 80vw;
+      border: 1px solid #d6dae2;
+      border-radius: 5px;
+      box-shadow: 0 2px 12px #aaa2;
+      margin-bottom: 16px;
+    }
+    .caption {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .info-text {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Concentração de Renda no Brasil (1975–2025)</h1>
+  <div class="periods">
+    <button class="period-btn active" onclick="showPeriod(0)">1975–1990</button>
+    <button class="period-btn" onclick="showPeriod(1)">1991–2005</button>
+    <button class="period-btn" onclick="showPeriod(2)">2006–2025</button>
+    <button class="period-btn" onclick="showPeriod(3)">Comparativo de Renda</button>
+  </div>
+
+  <!-- Painéis de infográficos e explicações -->
+  <div id="panel0" class="infographic" style="display:block;">
+    <div class="caption">Crescimento da concentração dos mais ricos (1975–1990)</div>
+    <div class="info-text">
+      O 1% mais rico detinha 55% da riqueza nacional em 1975 e chega a 60% em 1990.<br>
+      O 0,1% e 0,01% também ampliam sua fatia, destacando o aumento da desigualdade.
+    </div>
+    <img src="infografico1.png" alt="Concentração dos mais ricos 1975–1990">
+  </div>
+  <div id="panel1" class="infographic">
+    <div class="caption">Avanço e desafios sociais (1991–2005)</div>
+    <div class="info-text">
+      O percentual de riqueza do 1% cresce de 60% para 65%.<br>
+      O país experimenta estabilização econômica e algum avanço em redução da pobreza, mas a elite segue aumentando o domínio da riqueza.
+    </div>
+    <img src="infografico1.png" alt="Concentração dos mais ricos 1991–2005">
+  </div>
+  <div id="panel2" class="infographic">
+    <div class="caption">A escalada do topo (2006–2025)</div>
+    <div class="info-text">
+      O 1% avança de 65% para 70% da riqueza nacional.<br>
+      O 0,1% mais rico atingindo 12,5% e o grupo dos 0,01% chegam a 3%.<br>
+      A desigualdade estrutural se intensifica, com o topo crescendo muito acima da média.
+    </div>
+    <img src="infografico1.png" alt="Concentração dos mais ricos 2006–2025">
+  </div>
+  <div id="panel3" class="infographic">
+    <div class="caption">Comparativo de Renda Média (2005 vs 2025)</div>
+    <div class="info-text">
+      O salto na renda média mensal dos super-ricos em 20 anos:<br>
+      1%: R$ 45 mil para R$ 103 mil<br>
+      0,1%: R$ 500 mil para R$ 2,57 milhões<br>
+      0,01%: R$ 2,5 milhões para R$ 7 milhões
+    </div>
+    <img src="infografico2.png" alt="Renda média dos mais ricos">
+  </div>
+
+  <script>
+    function showPeriod(idx) {
+      // Oculta todos os painéis
+      for (let i = 0; i <= 3; i++) {
+        document.getElementById('panel' + i).style.display = 'none';
+      }
+      // Remove ativo dos botões
+      document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+      // Exibe painel e ativa botão correspondente
+      document.getElementById('panel' + idx).style.display = 'block';
+      document.querySelectorAll('.period-btn')[idx].classList.add('active');
+    }
+  </script>
+</body>
+</html>
